@@ -6,7 +6,7 @@ A less framework that can make you code faster
 ###第一步
 ![image](https://github.com/ziven27/less27/blob/master/guide/step1.png)
 
-打开koala[下载地址](http://koala-app.com)，把doc的文件拖入。
+打开koala<a href="http://koala-app.com" target="_blank">下载地址</a>，把doc的文件拖入。
 
 ###第二步
 ![image](https://github.com/ziven27/less27/blob/master/guide/step2.png)

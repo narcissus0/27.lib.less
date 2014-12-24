@@ -1,8 +1,7 @@
 less27
 ======
 
-A LESS tool, 
-Speed up coding.
+A LESS tool, speeding up coding.
 
 ###第一步
 ![image](https://github.com/ziven27/less27/blob/master/guide/step1.png)

@@ -1,7 +1,8 @@
 less27
 ======
 
-A tool can greatly speed up your coding with less typing.
+A less tool, 
+Speed up coding.
 
 ###第一步
 ![image](https://github.com/ziven27/less27/blob/master/guide/step1.png)

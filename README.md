@@ -1,7 +1,7 @@
 less27
 ======
 
-A less framework that can make you code faster
+A tool can greatly speed up your coding with less typing.
 
 ###第一步
 ![image](https://github.com/ziven27/less27/blob/master/guide/step1.png)

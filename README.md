@@ -20,7 +20,8 @@ A less framework that can make you code faster
 
 
 ###目录结构
-'''tree
+
+```tree
 .
 └── less27
     ├── doc
@@ -39,4 +40,4 @@ A less framework that can make you code faster
     │   └── step3.png
     ├── LICENSE
     └── README.md
-'''
+```

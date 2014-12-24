@@ -1,7 +1,7 @@
 less27
 ======
 
-A less tool, 
+A LESS tool, 
 Speed up coding.
 
 ###第一步

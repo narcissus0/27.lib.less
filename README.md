@@ -17,3 +17,26 @@ A less framework that can make you code faster
 ![image](https://github.com/ziven27/less27/blob/master/guide/step3.png)
 
 这是编译后的内容。
+
+
+###目录结构
+'''tree
+.
+└── less27
+    ├── doc
+    │   ├── 27less
+    │   │   ├── _27.attribute.less              --属性类
+    │   │   ├── _27.css3.less                   --CSS3相关
+    │   │   ├── _27.frame.less                  --布局框架
+    │   │   ├── _27.library.less                --通用框架
+    │   │   ├── _27.oocss.less                  --面向对象
+    │   │   ├── _27.reset.less                  --CSS Reset 相关
+    │   │   └── _27.style.less                  --调用其它文件
+    │   └── style.less                          --27less 目录的style.less 文件
+    ├── guide                                   --使用教程截图
+    │   ├── step1.png
+    │   ├── step2.png
+    │   └── step3.png
+    ├── LICENSE
+    └── README.md
+'''

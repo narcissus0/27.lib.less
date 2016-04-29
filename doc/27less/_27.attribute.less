@@ -38,8 +38,10 @@
 #bp-tL(@lr,@tb){ background-position:@lr @tb; }
 #p-a(){ position:absolute; }
 #p-r(){ position:relative; }
-
+#p-f(){ position:fixed; }
 //多属性带参
+#bcC(@bc,@c){ background-color: @bc; color: @c; };
+#cBc(@c,@bc){ #bcC(@bc,@c); };
 #hW(@h,@w){ height:@h; width:@w;}
 #wH(@w,@h){ height:@h; width:@w;}
 #wHlh(@w,@h){ height:@h; width:@w; line-height:@h; }

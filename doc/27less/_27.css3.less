@@ -1,8 +1,7 @@
 @charset "utf-8";
 
-///*
+
 //完整组件的创建以及使用
-//*/
 
 #radius(...) {
   -webkit-border-radius: @arguments;
@@ -39,7 +38,7 @@
   &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
 }
 
-				 
+// 颜色渐变				 
 #gradient(@bg1,@bg2){
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, @bg1), color-stop(1, @bg2));
 	background:-moz-linear-gradient(top, @bg1 5%, @bg2 100%);

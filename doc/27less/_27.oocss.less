@@ -1,4 +1,6 @@
 @charset "utf-8";
+//来自技术男神张鑫旭的 zxx.lib.css  https://github.com/zhangxinxu/zxx.lib.css
+
 #h14() { height: 14px; }
 #h16() { height: 16px; }
 #h18() { height: 18px; }
@@ -109,7 +111,7 @@
 #l0() { left: 0; }
 #r0() { right: 0; }
 #b0() { bottom: 0; }
-#bgwh() { background-color: #fff; }
+#bgff() { background-color: #fff; }
 #bgfb() { background-color: #fbfbfb; }
 #bgf5() { background-color: #f5f5f5; }
 #bgf0() { background-color: #f0f0f0; }
@@ -139,7 +141,8 @@
 #b0_on() { border: 0; outline: none; }
 #pa_out() { position: absolute; left: -999em; top: -999em; }
 #pa_clip() { position: absolute; clip: rect(0 0 0 0); }
-#oocss() { .dn { display: none; }
+#oocss() { 
+	.dn { display: none; }
 	.di { display: inline; }
 	.db { display: block; }
 	.dib { display: inline-block; }
@@ -301,9 +304,7 @@
 	.z { *zoom: 1; }
 
 	/* ------------------- multiply CSS ------------------ */
-	.auto { margin-left: auto; margin-right: auto; }
-	.fix { *zoom: 1; }
-	.fix:after { display: table; content: ''; clear: both; }
+	.auto { #auto; }
 	.cell { display: table-cell; *display: inline-block; width: 2000px; *width: auto; }
 	.cell_bk { display: table; width: 100%; table-layout: fixed; word-wrap: break-word; }
 	.ell { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
@@ -312,7 +313,7 @@
 	.b0_on { border: 0; outline: none; }
 	.pa_out { position: absolute; left: -999em; top: -999em; }
 	.pa_clip { position: absolute; clip: rect(0 0 0 0); }
-	.cf, .inline { #clearfix; }
+	.cf, .inline, .clearfix { #clearfix; }
 	.inline li, .inline li a { float: left; *display: inline; }
 	.noline li, .noline li a { float: none; display: block; }
 	.hide { display: none; }

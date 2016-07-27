@@ -8,12 +8,12 @@
 // 清除浮动====================================
 #clearfix(){	
 	&:after{ display: table; content: ''; clear: both; }
-    *zoom: 1;    
+	*zoom: 1;
 }
 
 //强制换行
 #breakLine(){  white-space: pre-wrap; word-break: break-all; word-wrap: break-word; }
-
+#breakLine(){ overflow-wrap: break-word;  word-wrap: break-word;  hyphens: auto; }
 //ico
 #ico(){ display:inline-block; text-align:center; background-repeat:no-repeat; vertical-align:middle; }
 #btn(){
@@ -25,7 +25,7 @@
 #t1b(@bc){
 	border:1px solid @bc;
 	border-width:1px 0 0 1px;
-	td,th{ border:1px solid @bc; border-width:0 1px 1px 0; }		
+	td,th{ border:1px solid @bc; border-width:0 1px 1px 0; }
 }
 
 //css angel @c:color; @w:width; @h:height;
@@ -92,10 +92,6 @@
 //参数:高,内边距,图片路径,行高
 //html:a.btn>span{按钮1}
 //*/
-#BtnAdapt(@h,@p,@aw,@url){	#td-n; line-height:@h; margin-right:@aw; #bp-tL(left,top); 
-			            	&,span{ #d-ib; #bi(@url); height:@h;  }
+#BtnAdapt(@h,@p,@aw,@url){ #td-n; line-height:@h; margin-right:@aw; #bp-tL(left,top); 
+							&,span{ #d-ib; #bi(@url); height:@h;  }
 						span{ #bp-tL(right,bottom); padding:0 @p 0 (@p - @aw); #o-h; #p-rL(@aw); }}
-
-
-
-

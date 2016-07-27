@@ -5,7 +5,7 @@
 // 来自 Bootstrap v3
 
 // @width:总宽度; @gutter:间距宽度; @colNum:列数
-#grid27(@gutter,@width,@colNum) {
+#grid(@gutter,@width,@colNum) {
   @colWidth: (@width - @gutter *  (@colNum - 1)) /  @colNum;
   
   #col(@index) { 
@@ -33,10 +33,10 @@
 };
 
 // 默认为12列
-#grid27(@gutter,@width){
+#grid(@gutter,@width){
 	#grid27(@gutter,@width,12);
 };
 
-#grid27(){
+#grid(){
 	#grid27(20px,940px,12);
 }

@@ -1,7 +1,7 @@
 less27
 ======
 
-A LESS tool, speeding up coding.
+A LESS lib, speeding up coding.
 
 #目录结构
 

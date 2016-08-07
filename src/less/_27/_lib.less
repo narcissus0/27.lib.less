@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 //attribute属性类的拓展同样不会暴露在CSS中
 //语义化的属性类
 //所有类名必须具有语义化便于以后使用
@@ -80,18 +79,50 @@
 	}
 }
 
-//图片精灵需要用到的
-#sp(@w,@h,@x,@y){
-	height:@h*1px;
-	width:@w*1px;
-	background-position: @x*-1px @y*-1px;
+//圆角
+#br(...) {
+  -webkit-border-radius: @arguments;
+		  border-radius: @arguments;}
+
+//阴影
+#bs(...) {
+  -webkit-box-shadow: @arguments;
+		  box-shadow: @arguments;}
+
+//文字阴影	  
+#ts(...) {
+  -webkit-text-shadow: @arguments;
+		  text-shadow: @arguments;}
+
+#transf(...){
+	-webkit-transform: @arguments;
+			  transform: @arguments;}
+	
+#transi(...) {
+ -webkit-transition: @arguments;
+		 transition: @arguments;}
+		 
+// Placeholder text
+#placeholder(@color: #999) {
+  &:-moz-placeholder            { color: @color; } // Firefox 4-18
+  &::-moz-placeholder           { color: @color; } // Firefox 19+
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
 }
 
-///*
-//自适应的按钮
-//参数:高,内边距,图片路径,行高
-//html:a.btn>span{按钮1}
-//*/
-#BtnAdapt(@h,@p,@aw,@url){ #td-n; line-height:@h; margin-right:@aw; #bp-tL(left,top); 
-							&,span{ #d-ib; #bi(@url); height:@h;  }
-						span{ #bp-tL(right,bottom); padding:0 @p 0 (@p - @aw); #o-h; #p-rL(@aw); }}
+//文字选择样式
+#selection(@bc, @c) { 
+  ::selection { background: @bc; color: @c; }
+  ::-moz-selection { background: @bc; color: @c; }
+}
+
+// 颜色渐变				 
+#gradient(@bg1,@bg2){
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, @bg1), color-stop(1, @bg2));
+	background:-moz-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:-webkit-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:-o-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:-ms-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:linear-gradient(to bottom, @bg1 5%, @bg2 100%);
+  //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@{bg1}', endColorstr='@{bg2}',GradientType=0);
+	background-color:@bg1;}

@@ -1,22 +1,19 @@
 @charset "utf-8";
-// 整体框架========================
 
 // 删格布局
 // 来自 Bootstrap v3
 
-// @width:总宽度; @gutter:间距宽度; @colNum:列数
-#grid(@gutter,@width,@colNum) {
-  @colWidth: (@width - @gutter *  (@colNum - 1)) /  @colNum;
-  
+// @width:总宽度; @gutter:间距宽度; @colNum:列数; @classPre: 输出的class名前缀
+#grid(@colWidth, @gutter, @colNum, @classPre) {  
   #col(@index) { 
-    @item: ~".g12-@{index}";
+    @item: ~".@{classPre}@{index}";
     #col((@index + 1), @item);
     @{item}{
 		width: @index  * @colWidth + (@index - 1) * @gutter;
 	}
   }
   #col(@index, @list) when (@index =< @colNum) { 
-    @item: ~".g12-@{index}";
+    @item: ~".@{classPre}@{index}";
     #col((@index + 1), ~"@{list}, @{item}");
     @{item}{
 		width: @index  * @colWidth + (@index - 1) * @gutter;
@@ -32,11 +29,14 @@
   #col(1);
 };
 
-// 默认为12列
-#grid(@gutter,@width){
-	#grid(@gutter,@width,12);
-};
+#grid(@colWidth, @gutter, @colNum){
+  #grid(@colWidth, @gutter, @colNum, 'col-');
+}
+
+#grid(@colWidth, @gutter){
+  #grid(@colWidth, @gutter, 12);
+}
 
 #grid(){
-	#grid(20px,940px,12);
+	#grid(60px, 20px, 12, 'col-');
 }

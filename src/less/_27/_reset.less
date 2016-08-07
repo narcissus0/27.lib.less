@@ -1,8 +1,7 @@
 @charset "utf-8";
-// 支持Html5的时候用到
-#resetHtml5() { article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } }
 
-#reset() { body, h1, h2, h3, h4, h5, h6, p, dl, dd, form, legend, ul, ol, fieldset { margin: 0; padding: 0; }
+#reset() { 
+	body, h1, h2, h3, h4, h5, h6, p, dl, dd, form, legend, ul, ol, fieldset { margin: 0; padding: 0; }
 	small, button, input, select, textarea, h1, h2, h3, h4, h5, h6, i, em, strong { font-size: 100%; font-weight: normal; }
 	button, input, select, textarea { margin: 0; }
 	button, input, select { vertical-align: middle; }
@@ -15,6 +14,13 @@
 	li { list-style: none; }
 	button { text-align: center; }
 }
+
+// 支持Html5的时候用到
+#reset5() {
+	#reset;
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } 
+}
+
 
 // #Reset() { th, td, legend, ul, ol, fieldset { padding: 0; }
 // 	body, h1, h2, h3, h4, h5, h6, p, dl, dd, form, textarea, ul, ol, fieldset { margin: 0; }

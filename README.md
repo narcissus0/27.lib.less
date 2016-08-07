@@ -1,7 +1,7 @@
 27.lib.less
 ======
 
-> **27.lib.less**是一个加快你css编写的less代码仓库
+> **27.lib.less**一个加快css编写的less库
 
 因为基于[less](http://www.bootcss.com/p/lesscss/)，所以希望你对less有一定的了解。
 

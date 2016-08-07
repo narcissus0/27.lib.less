@@ -1,11 +1,9 @@
-less27 - a quick less code library
+27.lib.less
 ======
 
-> Coding quickens as in the rocket.
+> **27.lib.less**是一个加快你css编写的less代码仓库
 
-简介
----------------
-**27.lib.less**是一个加快你css编写的less代码仓库，因为基于[less](http://www.bootcss.com/p/lesscss/)，所以希望你对less有一定的了解。
+因为基于[less](http://www.bootcss.com/p/lesscss/)，所以希望你对less有一定的了解。
 
 如果你懒，你也是可以不用了解的。因为本库只是借用了的less的语言特性，其用法其实是可以完全独立的。
 

@@ -11,7 +11,8 @@ Introduction
 
 27.lib.less可以这样来写less
 
-```css
+```less
+/* 输入 */
 .box{
 	#wHlh(100px,40px);
 	#paTl(50%);
@@ -20,7 +21,7 @@ Introduction
 	border:1px solid #ddd;
 }
 
-/*输出*/
+/* 编译输出 */
 .box {
   height: 40px;
   width: 100px;

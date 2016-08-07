@@ -3,7 +3,7 @@ less27 - a quick less code library
 
 Coding quickens as in the rocket.
 
-Introduction
+简介
 ---------------
 这是一个基于less的代码库，所以希望你对less有一定的了解。[less简介](http://www.bootcss.com/p/lesscss/)。
 

@@ -1,7 +1,7 @@
 less27 - a quick less code library
 ======
 
-Coding quickens as on the rocket.
+Coding quickens as in the rocket.
 
 #目录结构
 

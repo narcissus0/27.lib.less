@@ -7,12 +7,17 @@ A LESS lib, speeding up coding.
 
 ```tree
 .
-├── _27.attribute.less              --属性类
-├── _27.css3.less                   --CSS3相关
-├── _27.frame.less                  --布局框架
-├── _27.library.less                --通用框架
-├── _27.oocss.less                  --面向对象
-├── _27.reset.less                  --CSS Reset 相关
-└── _27.style.less                  --总入口
+|____css
+| |____style.css            --目标文件
+|____less
+| |_____27
+| | |_____attr.less         --属性类
+| | |_____css3.less         --css3 相关
+| | |_____grid.less         --删格布局
+| | |_____reset.less        --css reset 相关
+| | |_____lib.less          --常用样式
+| | |_____oocss.less        --面向对象
+| | |_____init.less         --总入口（此处调用了以上所有的库）
+| |____style.less           --在此处引入进行代码编写             
 
 ```

@@ -1,7 +1,7 @@
-less27
+less27 - a quick less code library
 ======
 
-A LESS lib, speeding up coding.
+Coding quickens as on the rocket.
 
 #目录结构
 

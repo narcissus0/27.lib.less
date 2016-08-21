@@ -47,6 +47,7 @@
 #tar() { text-align: right; }
 #tal() { text-align: left; }
 #taj() { text-align: justify; }
+#brnr(){ background-repeat: no-repeat; }
 #z() { *zoom: 1; }
 #t(@v) { top: @v; }
 #r(@v) { right: @v; }
@@ -77,6 +78,20 @@
 #bp(@x, @y) { background-position: @x @y; }
 // 多属性=========================================
 // [命名规则]属性属性之间用驼峰分开
+
+#btB(@t,@b){ #bt(@t); #bb(@b); };
+#btB(@v){ #btB(@v) };
+#blR(@l,@r){ #bl(@l); #br(@r); };
+#blR(@v){ #blR(@v) };
+#blTb(@l,@t,@b){ #bl(@l); #btB(@t,@b); };
+#blTb(@l,@v){ #blTb(@l,@v,@v); };
+#brTb(@r,@t,@b){ #br(@r); #btB(@t,@b); };
+#brTb(@r,@v){ #brTb(@r,@v,@v); };
+#btLr(@t,@l,@r){ #bt(@t); #blR(@l,@r); };
+#btLr(@t,@v){ #btLr(@t,@v,@v); };
+#bbLr(@b,@l,@r){ #bb(@b); #blR(@l,@r); };
+#bbLr(@b,@v){ #bbLr(@t,@v,@v); };
+
 
 // @bc:background-color; @c:color;
 #bcC(@bc, @c) { #bc(@bc); #c(@c); }
@@ -154,11 +169,9 @@
 #prBl(@v) { #prBl(@v, @v); }
 #prBr(@v) { #prBr(@v, @v); }
 
-//some thing more cool
-
+// something cool
 //这个可以用来下左右垂直居中
 #paTlHwMtMl(@t, @l, @h, @w, @mt, @ml) { #hW(@h, @w); #paTl(@t, @l); #mtL(@mt, @ml); }
-
 //水平垂直居中
 #paTlWml(@t, @l, @w, @ml) { #w(@w); #paTl(@t, @l); #ml(@ml);  }
 

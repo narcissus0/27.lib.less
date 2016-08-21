@@ -132,15 +132,16 @@
 #va-2() { vertical-align: -2px; }
 #zi1() { z-index: 1; }
 #zi2() { z-index: 2; }
+//block 元素左右对齐
 #auto() { margin-left: auto; margin-right: auto; }
+//自动填充容器剩余宽度
 #cell() { display: table-cell; *display: inline-block; width: 2000px; *width: auto; }
-#cell_bk() { display: table; width: 100%; table-layout: fixed; word-wrap: break-word; }
+//文字超出添加...
 #ell() { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+//css3动画
 #trans() { -webkit-transition: all 0.3s; transition: all 0.3s; }
-#dib_vm() { display: inline-block; width: 0; height: 100%; vertical-align: middle; }
-#b0_on() { border: 0; outline: none; }
-#pa_out() { position: absolute; left: -999em; top: -999em; }
-#pa_clip() { position: absolute; clip: rect(0 0 0 0); }
+//隐藏元素
+#padn() { position: absolute; clip: rect(0 0 0 0); }
 #oocss() { 
 	.dn { display: none; }
 	.di { display: inline; }
@@ -303,18 +304,14 @@
 	.vv { visibility: visible; }
 	.z { *zoom: 1; }
 
-//	/* ------------------- multiply CSS ------------------ */
-	.auto { #auto; }
-	.cell { display: table-cell; *display: inline-block; width: 2000px; *width: auto; }
-	.cell_bk { display: table; width: 100%; table-layout: fixed; word-wrap: break-word; }
-	.ell { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
-	.trans { -webkit-transition: all 0.3s; transition: all 0.3s; }
-	.dib_vm { display: inline-block; width: 0; height: 100%; vertical-align: middle; }
-	.b0_on { border: 0; outline: none; }
-	.pa_out { position: absolute; left: -999em; top: -999em; }
-	.pa_clip { position: absolute; clip: rect(0 0 0 0); }
+	.auto { #auto; } 
+	.cell { #cell; } 
+	.ell { #ell; }
+	.trans { #trans; }
+	.padn { #padn(); }
+	
+	//清除浮动
 	.cf, .inline, .clearfix { #clearfix; }
 	.inline li, .inline li a { float: left; *display: inline; }
-	.noline li, .noline li a { float: none; display: block; }
-	.hide { display: none; }
+	.noline li, .noline li a { float: none; display: block; }	
 }

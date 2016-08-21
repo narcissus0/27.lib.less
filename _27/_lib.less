@@ -1,0 +1,112 @@
+@charset "utf-8";
+@import "_core.less";
+// 所有类名j建议具有语义化便于以后使用
+
+// 清除浮动
+#clearfix(){	
+	&:after{ display: table; content: ''; clear: both; }
+	*zoom: 1;
+}
+
+// 强制换行
+// #breakLine(){  white-space: pre-wrap; word-break: break-all; word-wrap: break-word; }
+#breakLine(){ overflow-wrap: break-word;  word-wrap: break-word; hyphens: auto; }
+
+//小图标基础样式
+#ico(){ #dib; #tac; #brnr; #vam; }
+
+//按钮基础样式
+#btn(){
+	#tac; #oh;
+	a&{ #dib; #vam; }
+}
+
+//1像素到表格
+#t1b(@bc){
+	border:1px solid @bc;
+	border-width:1px 0 0 1px;
+	td,th{ border:1px solid @bc; border-width:0 1px 1px 0; }
+}
+
+//pref autoprefix 自动添加前缀
+#pref(@name,@value){
+	-webkit-@{name}:@value;
+		    @{name}:@value;	
+};
+
+#transf(...){ #pref(transform, @arguments); }
+#transi(...){ #pref(transition, @arguments); }
+#transid(...){ #pref(transition-delay, @arguments); }
+#scaleY(...){ #pref(transform, scaleY(@arguments)); }
+
+// css angel 纯css 三角形
+// @c:color; @w:width; @h:height;
+#angle(){
+	#r(@c,@w,@h){
+		#blTb(@w solid @c, @h dashed transparent);
+	}
+	#r(@c,@w){
+		#r(@c,@w,@w);
+	}
+	#l(@c,@w,@h){
+		#brTb(@w solid @c, @h dashed transparent);
+	}
+	#l(@c,@w){
+		#l(@c,@w,@w);
+	}
+	#t(@c,@w,@h){
+		#btLr(@w solid @c, @h dashed transparent);
+	}
+	#t(@c,@w){
+		#t(@c,@w,@w);
+	}
+	#b(@c,@w,@h){
+		#bbLr(@w solid @c, @h dashed transparent);
+	}
+	#b(@c,@w){
+		#b(@c,@w,@w);
+	}
+}
+
+//rgba创建兼容IE的rgba
+#rgba(@r,@g,@b,@a){
+	@c: rgba(@r,@g,@b,@a); 
+	@c2 :argb(@c);
+	/* for IE9 IE8 IE7 not sure about IE6*/
+	filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='@{c2}', endColorstr='@{c2}')";
+	background-color:@c;
+	:root &{
+		/* 
+		 * IE9 由于rgba和filter都支持，会导致两个颜色叠加，使用hack去除 
+		 * \9 代表 IE9 以下浏览器支持
+		 * :root 只有 IE9+ 以及其他现代浏览器支持
+		 * IE10 以上不再支持 filter
+		*/
+		filter:none;
+	}
+}
+
+// 颜色渐变				 
+#gradient(@bg1,@bg2){
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, @bg1), color-stop(1, @bg2));
+	background:-moz-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:-webkit-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:-o-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:-ms-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:linear-gradient(to bottom, @bg1 5%, @bg2 100%);
+    //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@{bg1}', endColorstr='@{bg2}',GradientType=0);
+	background-color:@bg1;}
+
+// Placeholder text
+#placeholder(@v: #999) {
+  &:-moz-placeholder            { #c(@v); } // Firefox 4-18
+  &::-moz-placeholder           { #c(@v); } // Firefox 19+
+  &:-ms-input-placeholder       { #c(@v); } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { #c(@v); } // Safari and Chrome
+}
+
+//文字选择样式
+#selection(@bc, @c) { 
+  ::selection { #bcC(@bc,@c); }
+  ::-moz-selection { #bcC(@bc,@c); }
+}

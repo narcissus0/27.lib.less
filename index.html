@@ -64,17 +64,15 @@
 <a id="目录结构" class="anchor" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>目录结构</h2>
 
 <pre lang="tree"><code>.
-|____ css
-| |____ style.css            --目标文件
-|____ less
-| |____ _27
-| | |____ _core.less         --核心库，属性类
-| | |____ _grid.less         --删格布局
-| | |____ _reset.less        --css reset 相关
-| | |____ _lib.less          --常用样式
-| | |____ _oocss.less        --面向对象
-| | |____ _init.less         --总入口（此处调用了以上所有的库）
-| |____ style.less           --在此处引入_27._init.less，并进行其他代码编写
+|____ _27
+| |____ _core.less         --核心库，属性类
+| |____ _grid.less         --删格布局
+| |____ _reset.less        --css reset 相关
+| |____ _lib.less          --常用样式
+| |____ _oocss.less        --面向对象
+| |____ _init.less         --总入口（此处调用了以上所有的库）
+|***
+|____ style.less           --在此处引入_27/_init.less，并进行其他代码编写
 
 </code></pre>
 

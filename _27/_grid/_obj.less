@@ -1,0 +1,91 @@
+
+// param
+
+@_countNum:12;                //总列数
+@_girdPre:~'.g27_';           //样式前缀 
+@_girdOffsetPre:~'.g27_o_';   //样式偏移前缀    
+@_wrapSel: ~'.g27_w';         //相邻布局容器
+@_gutterSel: ~'.g27_g';       //间隔布局容器
+
+@_mainWidth: 1200px;         //网页最大宽度
+@_bigGutter: 1.25%;          //大屏列间距
+@_bigAppend: 1%;             //大屏左右边距
+
+
+//同时设定左右间距
+#_mlR(@v){ margin-left: @v; margin-right: @v; }
+
+//清楚浮动
+#_clearfix(){
+	&:after, &:before{ display: table; content: ""; }
+	&:after{ clear:both; overflow:hidden; }
+	*zoom: 1;
+}
+
+//设定间隔布局的宽度
+#_gutterGridsWidth(@selPre, @gutter, @mainWidth:100%){
+	@doubleGutter: @gutter * 2;
+	#recursion(@colNum) when (1 =< @colNum) {
+		@{_gutterSel} @{selPre}@{colNum} { 
+			width: @mainWidth/@_countNum * @colNum - @doubleGutter;
+		}
+		#recursion(@colNum - 1);
+	};
+	#recursion(@_countNum);
+};
+
+//设定间隔布局的偏移
+#_gutterGridsOffset(@selPre, @gutter, @mainWidth:100%){
+
+	#recursion(@colNum) when (1 =< @colNum) {
+		@{_gutterSel} @{selPre}@{colNum} { margin-left: @mainWidth/@_countNum * @colNum + @gutter; }
+		#recursion(@colNum - 1);
+	};
+	#recursion(@_countNum - 1);
+};
+
+//设定间隔布局列边距
+#_gutterGridsMargin(@girdPre, @gutter){
+	#init(@girdPre, @num){
+		@classSel: ~"@{girdPre}@{num}";
+		#recursion(@girdPre, @num - 1, @classSel);	
+	}
+	#recursion(@girdPre, @num, @sleList) when ( 0 < @num){
+		@classSel: ~"@{sleList}, @{girdPre}@{num}";
+		#recursion(@girdPre, @num - 1, @classSel);
+	};
+	#recursion(@girdPre, @num, @sleList) when ( 0 = @num ){
+		@{sleList}{ #_mlR(@gutter); }
+	};
+	#init(@girdPre, @_countNum);
+}
+
+//设定相邻布局的偏移
+#_wrapGridsOffset(@selPre, @wrapWidth:100%){
+	#recursion(@colNum) when (1 =< @colNum) {
+		@{_wrapSel} @{selPre}@{colNum} { margin-left: @wrapWidth/@_countNum * @colNum; }
+		#recursion(@colNum - 1);
+	};
+	#recursion(@_countNum - 1);
+};
+
+//设定相邻布局的宽度
+#_wrapGridsWidth(@selPre, @wrapWidth:100%){
+	@{selPre}no { display: none; }
+	@{selPre}on { display: block; }
+	#recursion(@colNum) when (1 =< @colNum) {
+		@{_wrapSel} @{selPre}@{colNum} { width: @colNum/@_countNum * @wrapWidth; }
+		#recursion(@colNum - 1);
+	};
+	#recursion(@_countNum);
+}
+
+//设定两种布局的左右间距
+#_wrapGutterMargin(@gutter, @append){
+	@nowAppendFloat:unit(@append)/100;
+	@nowGutterFloat:unit(@gutter)/100;
+	@wrapWith:(1 - @nowAppendFloat * 2) * (1 - @nowGutterFloat * 2 );
+	@wrapMargin: percentage((1 - @wrapWith)/2);
+	@{_gutterSel}{ #_mlR(@append); }
+	@{_wrapSel}{ #_mlR(@wrapMargin); }
+}

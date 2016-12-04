@@ -44,7 +44,9 @@
 .
 |____ _27
 | |____ _core.less         --核心库，属性类
-| |____ _grid.less         --删格布局
+| |____ _grid              --栅格布局
+| |  |____ _init.less      --栅格布局参数和方法
+| |  |____ _obj.less       --栅格布局入口
 | |____ _reset.less        --css reset 相关
 | |____ _lib.less          --常用样式
 | |____ _oocss.less        --面向对象

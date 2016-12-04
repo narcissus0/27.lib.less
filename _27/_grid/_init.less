@@ -1,0 +1,89 @@
+// 来自我的栅格框架  https://github.com/ziven27/grid27
+
+// 带下滑线开头的为全局变量
+@import "_obj.less";   //对象方法
+
+//固定布局
+#gridFixed(){
+	//格子容器基础样式（清除浮动，左右居中, 基础宽度）
+	#containerDefault(){
+		@{_wrapSel}, @{_gutterSel} {
+			#_clearfix;
+			#_mlR(auto);
+		}
+		@gutterPx: @_mainWidth * unit( @_bigGutter ) /100;
+		@{_wrapSel}{ width: @_mainWidth - @gutterPx * 2; }
+		@{_gutterSel}{ width: @_mainWidth; }
+	}
+	#containerDefault();
+
+	//每一个格子的默认基础浮动样式
+	#gridsDefault(@girdPre, @countNum){	
+		#init(@girdPre, @num){
+			@classSel: ~"@{girdPre}@{num}";
+			#recursion(@girdPre, @num - 1, @classSel);
+		}
+		#recursion(@girdPre, @num, @sleList) when ( 0 < @num){
+			@classSel: ~"@{sleList}, @{girdPre}@{num}";
+			#recursion(@girdPre, @num - 1, @classSel);
+		};
+		#recursion(@girdPre, @num, @sleList) when ( 0 = @num ){
+			@{sleList}{ float: left; *display: inline; }
+		};
+		#init(@girdPre, @countNum);
+	}
+	#gridsDefault(@_girdPre, @_countNum);
+
+	//间隔和相邻宽度
+	@gutterPx: @_mainWidth * unit( @_bigGutter ) /100;
+	@wrapWidth:@_mainWidth - @gutterPx * 2; 
+	#_gutterGridsWidth(@_girdPre, @gutterPx, @_mainWidth);
+	#_gutterGridsMargin(~'@{_gutterSel} @{_girdPre}', @gutterPx);
+	#_gutterGridsOffset(@_girdOffsetPre, @gutterPx, @_mainWidth);
+	#_wrapGridsWidth(@_girdPre, @wrapWidth);
+}
+
+// 流式+响应式布局
+#gridFluid(){
+	#gridFixed;
+	//以下为支持media的浏览器执行
+	@media ( max-width: @_mainWidth ){
+		@{_wrapSel}, @{_gutterSel} { width: auto; }
+	}
+
+	@media ( max-width: 1200px){
+		@gutter:@_bigGutter;
+		@gutterAppend:@_bigAppend;
+		#_wrapGutterMargin(@gutter, @gutterAppend);
+		#_gutterGridsWidth(~'.g27_', @gutter);
+		@{_gutterSel} > [class*='g27_']{
+			#_mlR(@gutter);
+		}
+		#_gutterGridsOffset(~'.g27_o_', @gutter);
+		#_wrapGridsWidth(~'.g27_');
+	}
+
+	@media ( max-width: 960px){
+		@gutter:1%;
+		@gutterAppend:2.5%;
+		#_wrapGutterMargin(@gutter, @gutterAppend);
+		#_gutterGridsWidth(~'.g27_m_', @gutter);
+		@{_gutterSel} > [class*='g27_m']{
+			#_mlR(@gutter);
+		}
+		#_gutterGridsOffset(~'.g27_m_o_', @gutter);
+		#_wrapGridsWidth(~'.g27_m_');
+	}
+
+	@media ( max-width: 540px){
+		@gutter:1%;
+		@gutterAppend:3%;
+		#_gutterGridsWidth(~'.g27_s_', @gutter);
+		@{_gutterSel} > [class*='g27_s']{
+			#_mlR(@gutter);
+		}
+		#_gutterGridsOffset(~'.g27_s_o_', @gutter);
+		#_wrapGridsWidth(~'.g27_s_');
+	}	
+}
+

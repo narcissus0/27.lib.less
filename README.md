@@ -75,6 +75,6 @@
 - [2._core.less](https://github.com/ziven27/27.lib.less/wiki/2._core.less)
 - [3._lib.less](https://github.com/ziven27/27.lib.less/wiki/3._lib.less)
 - [4._reset.less](https://github.com/ziven27/27.lib.less/wiki/4._reset.less)
-- [5._grid.less](https://github.com/ziven27/27.lib.less/wiki/5._grid.less)
+- [5._grid.less](https://github.com/ziven27/27.lib.less/wiki/5._grid)
 - [6._oocss.less](https://github.com/ziven27/27.lib.less/wiki/6._oocss.less)
 
